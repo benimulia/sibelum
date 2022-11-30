@@ -807,6 +807,7 @@ class AdminController extends Controller
         $n = $request->namaMhs;
         
         $data = new ijazah;
+
         if ($request->file('ijazah')) {
                 $file = $request->file('ijazah');
                 // $namauser = $namauser;
@@ -836,6 +837,17 @@ class AdminController extends Controller
                 $dataa->file = $nama_file;
         }
 
+        try {
+            $nameIjazah = $n . "-" . $request->ijazah->getClientOriginalName();
+            $request->ijazah->move(public_path() . '/ijazah', $nameIjazah);
+
+            $nameTranskrip = $n . "-" . $request->transkrip->getClientOriginalName();
+            $request->transkrip->move(public_path() . '/transkrip', $nameTranskrip);
+            
+        } catch (Exception $e) {
+            return redirect('/admin/biro')->with('fail', 'Gagal construct data. Silahkan coba lagi');
+        }
+
         ijazah::create([
             
             'no_ijazah' => $request->no_ijazah,
@@ -849,8 +861,8 @@ class AdminController extends Controller
             'fakultas' => $request->fakultas,
             'tahunlulus' => $request->tahunlulus,
             'predikat' => $request->predikat,
-            'ijazah' => $data->file,
-            'transkrip' => $data->file,
+            'ijazah' => $nameIjazah,
+            'transkrip' => $nameTranskrip,
         ]);
 
         return redirect('/admin/dataalumni')->with('success', 'Berhasil menambahkan data');
