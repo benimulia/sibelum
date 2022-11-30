@@ -84,7 +84,7 @@
 
                             <div class="col-md-6">
                                 <select id="level" type="level" class="form-control @error('level') is-invalid @enderror" name="level" required autocomplete="level">
-                                    <option value="mahasiswa">Mahasiswa</option>
+                                    <option value="alumni">Alumni</option>
                                 </select>
 
                                 @error('level')

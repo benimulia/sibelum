@@ -135,11 +135,7 @@ Coded by www.creative-tim.com
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="preloader">
-        <div class="loading">
-          <img src="{{ asset('admin/img/loading.gif') }}" width="100%">
-        </div>
-      </div>
+    
       <div class="content" style="min-height: 80vh;">
         <div class="container-fluid">
           @yield('content')
