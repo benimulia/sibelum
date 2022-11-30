@@ -39,6 +39,11 @@ Route::group(['middleware' =>['auth']], function(){
     Route::group(['middleware' => ['cek_login:biro']], function(){
         Route::get('/biro', 'App\Http\Controllers\AdminController@index')->name('admin');
         
+        Route::get('/admin/registermahasiswa', function () {
+            return view('admin.registermahasiswa');
+        });
+
+        Route::post('/admin/registermahasiswa/create','App\Http\Controllers\AdminController@registermahasiswa')->name('registermahasiswa');
 
         Route::get('/admin/dataalumni', 'App\Http\Controllers\AdminController@index')->name('admin');
         Route::get('/admin/tambahijazah','App\Http\Controllers\AdminController@tambahIjazah')->name('tambahijasa');
@@ -64,6 +69,7 @@ Route::group(['middleware' =>['auth']], function(){
 
     Route::group(['middleware' => ['cek_login:alumni']], function(){
         Route::get('/alumni', 'App\Http\Controllers\AlumniController@index')->name('alumni');
+        Route::post('/alumni/edit/{id}','App\Http\Controllers\AlumniController@updateAlumni')->name('editAlumni');
         Route::get('/alumni/openijazah/{id}', 'App\Http\Controllers\AlumniController@openijazah')->name('openijazah');
         Route::get('/alumni/opentranskrip/{id}', 'App\Http\Controllers\AlumniController@opentranskrip')->name('opentranskrip');
         Route::get('/alumni/dataalumni','App\Http\Controllers\AlumniController@dataalumni')->name('dataalumni');

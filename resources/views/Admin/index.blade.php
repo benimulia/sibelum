@@ -102,14 +102,33 @@
 @endsection
 
 @section('content')
-
+@if ($message = Session::get('success'))
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    </div>
+</div>
+@endif
+@if ($message = Session::get('fail'))
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    </div>
+</div>
+@endif
 
 <div class="row mb-4 ml-2">
     <div class="col-lg-3 border rounded p-2 mr-4">
         <div class="row ml-2">
             <h3>JENIS KELAMIN</h3>
         </div>
-        <div class="card card-stats">
+        <div class="card card-stats bg-danger">
             <div class="card-body">
                 <div class="row">
                     <div class="col-5 col-md-4">
@@ -133,7 +152,7 @@
                 </div>
             </div>
         </div>
-        <div class="card card-stats">
+        <div class="card card-stats bg-primary">
             <div class="card-body">
                 <div class="row">
                     <div class="col-5 col-md-4">
@@ -162,7 +181,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="card card-stats">
+                <div class="card card-stats bg-warning">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5 col-md-4">
@@ -187,7 +206,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card card-stats">
+                <div class="card card-stats bg-info">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5 col-md-4">
@@ -214,7 +233,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="card card-stats">
+                <div class="card card-stats bg-secondary">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5 col-md-4">
@@ -239,7 +258,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card card-stats">
+                <div class="card card-stats bg-success">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5 col-md-4">
@@ -281,26 +300,7 @@
         </nav>
     </div>
 </div>
-@if ($message = Session::get('success'))
-<div class="row">
-    <div class="col-sm-12 col-md-12">
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{ $message }}</strong>
-        </div>
-    </div>
-</div>
-@endif
-@if ($message = Session::get('fail'))
-<div class="row">
-    <div class="col-sm-12 col-md-12">
-        <div class="alert alert-danger alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{ $message }}</strong>
-        </div>
-    </div>
-</div>
-@endif
+
 <div class="row">
     <div class="col-sm-12 col-md-16">
         <div class="card">
@@ -322,10 +322,7 @@
                                 class="fa fa-plus"></i> Tambah Tahun </a>
                         <a href="/admin/tanggal" class="btn btn-primary btn-md active" role="button"> <i
                                 class="fa fa-plus"></i> Tambah Tanggal </a>
-                        <a href="/admin/grafikipk" class="btn btn-primary btn-md active" role="button"> <i
-                                class="fa fa-plus"></i> Lihat Grafik IPK </a>
-                        <a href="/admin/grafikprodi" class="btn btn-primary btn-md active" role="button"> <i
-                                class="fa fa-plus"></i> Lihat grafik Prodi </a>
+                       
                         <!-- <a href="/admin/grafikangkatan" class="btn btn-primary btn-md active" role="button"> <i class="fa fa-plus"></i>  Lihat grafik Angkatan</a> -->
                     </div>
                 </div>
@@ -335,7 +332,7 @@
                             <div class="form-row align-items-center">
                                 <div class="col-auto">
                                     <label for="filterprodi">Prodi</label>
-                                    <select name="filterprodi" id="filterprodi" class="filter">
+                                    <select name="filterprodi" id="filterprodi" class="custom-select custom-select-sm">
                                         <option value="">Pilih Prodi</option>
                                         @foreach($list_prodi as $prodi)
                                         <option value="{{$prodi->nama_prodi}}" >{{$prodi->nama_prodi}}</option>
@@ -344,7 +341,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <label for="filterpredikat">Predikat</label>
-                                    <select name="filterpredikat" id="filterpredikat" class="filter">
+                                    <select name="filterpredikat" id="filterpredikat" class="custom-select custom-select-sm">
                                         <option value="">Pilih Predikat</option>
                                         @foreach ($predikat as $kt)
                                         <option value="{{ $kt->keterangan }}">{{ $kt->keterangan }}</option>
@@ -353,7 +350,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <label for="filterperiode">Periode</label>
-                                    <select name="filterperiode" id="filterperiode" class="filter">
+                                    <select name="filterperiode" id="filterperiode" class="custom-select custom-select-sm">
                                         <option value="">Pilih Periode</option>
                                         @foreach ($tanggal as $tg)
                                         <option value="{{ $tg->tanggal }}">{{ $tg->tanggal }}</option>
@@ -414,14 +411,14 @@
 
 
                                         <td>
-                                            <a href="/admin/openijazah/{{$result->namaMhs}}" target="_blank"
+                                            <a href="/admin/openijazah/{{$result->ijazah}}" target="_blank"
                                                 class="btn btn-warning">
                                                 <i class="fa fa-folder-open-o"></i></a> <span
                                                 class="glyphicon glyphicon-eye-open">
                                                 </a>
                                         </td>
                                         <td>
-                                            <a href="/admin/opentranskrip/{{$result->namaMhs}}" target="_blank"
+                                            <a href="/admin/opentranskrip/{{$result->transkrip}}" target="_blank"
                                                 class="btn btn-warning">
                                                 <i class="fa fa-folder-open-o"></i></a> <span
                                                 class="glyphicon glyphicon-eye-open">
@@ -434,29 +431,6 @@
                                         <td><a href="/admin/ijazah/delete/{{ $result->id_ijazah }}"
                                                 class="btn btn-danger"> <i class="fa fa-trash"></i></a>
                                         </td>
-                                        <!-- <td><a href="#myModal" data-toggle="modal" class="btn btn-danger" type="hidden" name="idijazah" id="idijazah" value="{{ $result->id_ijazah }}"><i class="fa fa-trash"></i></a></td> -->
-                                        <!-- Modal HTML -->
-                                        <!-- <div id="myModal" class="modal fade">
-                                            <div class="modal-dialog modal-confirm">
-                                                <div class="modal-content">
-                                                    <div class="modal-header flex-column">
-                                                        <div class="icon-box">
-                                                            <i class="material-icons">&#xE5CD;</i>
-                                                        </div>
-                                                        <h7 class="modal-title w-100">Menghapus?</h7>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>Apakah anda yakin ingin menghapus?</p>
-                                                    </div>
-                                                    <div class="modal-footer justify-content-center">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">TIDAK</button>
-                                                        <input type="text" class="form-control" name="idjazah" id="idjazah" value="{{ $result->id_ijazah }}">
-                                                        <a href="/admin/ijazah/delete/{{ $result->id_ijazah }}" class="btn btn-danger text-light">YA</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> -->
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\ijazah;
+use App\Models\User;
 
 
 class AlumniController extends Controller
@@ -14,10 +15,10 @@ class AlumniController extends Controller
         $nama = auth()->user()->name;
         $uid = auth()->user()->id;
         $nim = auth()->user()->nim;
+        $user = User::find($uid);
        
         
-        $ijazah = ijazah::all()
-        ->where('nim', $nim);
+        $ijazah = ijazah::where('nim', $nim)->first();
 
         $perempuan = DB::table('ijazah')
         ->get('jeniskelamin')
@@ -40,8 +41,20 @@ class AlumniController extends Controller
         ->count();
         
 
-        return view('alumni.index', compact('ijazah', 'ipktinggi', 'ipkrendah', 'perempuan', 'laki_laki'));
+        return view('alumni.index', compact('ijazah','user', 'ipktinggi', 'ipkrendah', 'perempuan', 'laki_laki'));
     
+
+    }
+
+    public function updateAlumni($id, Request $request){
+        $user = User::find($id);
+
+        $user->email = $request->email;
+        $user->no_hp = $request->no_telp;
+        $user->alamat = $request->alamat;
+        $user->save();
+
+        return redirect('alumni')->with('success', 'Berhasil mengubah data');
 
     }
     

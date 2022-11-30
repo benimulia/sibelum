@@ -73,15 +73,17 @@ Coded by www.creative-tim.com
             </a>
           </li>
         </ul>
+       
         <ul class="nav">
           </li>
-          <li class="{{ (request()->is('admin/dataalumni*')) ? 'active' : '' }}">
-            <a href="/admin/dataalumni">
+          <li class="{{ (request()->is('register*')) ? 'active' : '' }}">
+            <a href="/admin/registermahasiswa">
               <i class="nc-icon nc-single-copy-04"></i>
-              <p>Data Alumni</p>
+              <p>Register Mahasiswa</p>
             </a>
           </li>
         </ul>
+
       </div>
     
     </div>
@@ -174,11 +176,8 @@ Coded by www.creative-tim.com
 <hr>
 <hr> -->
 
-      <div class="preloader">
-        <div class="loading">
-          <img src="{{ asset('admin/img/loading.gif') }}" width="100%">
-        </div>
-      </div>
+     
+     
       <div class="content" style="min-height: 80vh;">
         <div class="container-fluid">
           @yield('content')

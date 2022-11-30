@@ -10,6 +10,7 @@ use App\Models\fakultas;
 use App\Models\prodi;
 use App\Models\tahun;
 use App\Models\tanggal;
+use App\Models\User;
 
 
 
@@ -22,18 +23,115 @@ class AdminController extends Controller
         if(count($request->all()) > 0) {
             if ($request->filled('filterprodi')) {
                 $ijazah = ijazah::where('prodi', '=', $request->filterprodi)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+
             }
     
             if ($request->filled('filterpredikat')) {
                 $ijazah = ijazah::where('predikat', '=', $request->filterpredikat)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
             }
     
             if ($request->filled('filterperiode')) {
                 $ijazah = ijazah::where('periode', '=', $request->filterperiode)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
             }
     
             if ($request->filled('filterangkatan')) {
                 $ijazah = ijazah::where('angkatan', '=', $request->filterangkatan)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
             }
 
 
@@ -41,7 +139,50 @@ class AdminController extends Controller
             if($request->filled('filterprodi')&&$request->filled('filterpredikat')&&$request->filled('filterperiode')&&$request->filled('filterangkatan')){
                 $ijazah = ijazah::where('prodi', '=', $request->filterprodi)
                 ->where('predikat', '=', $request->filterpredikat)
+                ->where('angkatan', '=', $request->filterangkatan)
                 ->where('periode', '=', $request->filterperiode)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
             }
 
             //----------------
@@ -49,46 +190,307 @@ class AdminController extends Controller
                 $ijazah = ijazah::where('prodi', '=', $request->filterprodi)
                 ->where('predikat', '=', $request->filterpredikat)
                 ->where('periode', '=', $request->filterperiode)
-                ->where('angkatan', '=', $request->filterangkatan)->get();
+                ->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('periode', '=', $request->filterperiode)
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
             }
 
             if($request->filled('filterprodi')&&$request->filled('filterpredikat')&&$request->filled('filterangkatan')){
                 $ijazah = ijazah::where('prodi', '=', $request->filterprodi)
                 ->where('predikat', '=', $request->filterpredikat)
                 ->where('angkatan', '=', $request->filterangkatan)->get();
+
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('predikat', '=', $request->filterpredikat)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('prodi', '=', $request->filterprodi)
+                ->count();
             }
 
             if($request->filled('filterpredikat')&&$request->filled('filterperiode')&&$request->filled('filterangkatan')){
                 $ijazah = ijazah::where('predikat', '=', $request->filterpredikat)
                 ->where('periode', '=', $request->filterperiode)
                 ->where('angkatan', '=', $request->filterangkatan)->get();
+
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
             }
 
             //------------------
             if($request->filled('filterprodi') && $request->filled('filterpredikat') ){
                 $ijazah = ijazah::where('prodi', '=', $request->filterprodi)
                 ->where('predikat', '=', $request->filterpredikat)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+
             }
 
             if($request->filled('filterprodi') && $request->filled('filterperiode') ){
                 $ijazah = ijazah::where('prodi', '=', $request->filterprodi)
                 ->where('periode', '=', $request->filterperiode)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('periode', '=', $request->filterperiode)
+                ->count();
             }
 
             if($request->filled('filterprodi') && $request->filled('filterangkatan') ){
                 $ijazah = ijazah::where('prodi', '=', $request->filterprodi)
                 ->where('angkatan', '=', $request->filterangkatan)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('prodi', '=', $request->filterprodi)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
             }
             //--
 
             if($request->filled('filterperiode') && $request->filled('filterpredikat') ){
                 $ijazah = ijazah::where('periode', '=', $request->filterperiode)
                 ->where('predikat', '=', $request->filterpredikat)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
             }
 
             if($request->filled('filterangkatan') && $request->filled('filterpredikat') ){
                 $ijazah = ijazah::where('angkatan', '=', $request->filterangkatan)
                 ->where('predikat', '=', $request->filterpredikat)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->where('predikat', '=', $request->filterpredikat)
+                ->count();
             }
 
             //---
@@ -96,11 +498,70 @@ class AdminController extends Controller
             if($request->filled('filterperiode') && $request->filled('filterangkatan') ){
                 $ijazah = ijazah::where('periode', '=', $request->filterperiode)
                 ->where('angkatan', '=', $request->filterangkatan)->get();
+
+                $perempuan = Ijazah::where('jeniskelamin', '=', 'Perempuan')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $laki_laki = Ijazah::where('jeniskelamin', '=', 'Laki-Laki')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $baik = Ijazah::where('predikat', '=', 'Baik')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $memuaskan = Ijazah::where('predikat', '=', 'Memuaskan')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $sangatmemuaskan = Ijazah::where('predikat', '=', 'Sangat Memuaskan')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
+        
+                $denganpujian = Ijazah::where('predikat', '=', 'Dengan Pujian')
+                ->where('periode', '=', $request->filterperiode)
+                ->where('angkatan', '=', $request->filterangkatan)
+                ->count();
             }
 
 
         } else {
             $ijazah = ijazah::all();
+            $perempuan = DB::table('ijazah')
+            ->get('jeniskelamin')
+            ->where('jeniskelamin', '=', 'Perempuan')
+            ->count();
+    
+            $laki_laki = DB::table('ijazah')
+            ->get('jeniskelamin')
+            ->where('jeniskelamin', '=', 'Laki-Laki')
+            ->count();
+    
+            $baik = DB::table('ijazah')
+            ->get('predikat')
+            ->where('predikat', '=', 'Baik')
+            ->count();
+    
+            $memuaskan = DB::table('ijazah')
+            ->get('predikat')
+            ->where('predikat', '=', 'Memuaskan')
+            ->count();
+    
+            $sangatmemuaskan = DB::table('ijazah')
+            ->get('predikat')
+            ->where('predikat', '=', 'Sangat Memuaskan')
+            ->count();
+    
+            $denganpujian = DB::table('ijazah')
+            ->get('predikat')
+            ->where('predikat', '=', 'Dengan Pujian')
+            ->count();
         }
 
        
@@ -114,40 +575,6 @@ class AdminController extends Controller
         ->get();
 
         
-
-        // $jumlah = DB::table('ijazah')
-        // ->get('id_ijazah')
-        // -count();
-
-        $perempuan = DB::table('ijazah')
-        ->get('jeniskelamin')
-        ->where('jeniskelamin', '=', 'Perempuan')
-        ->count();
-
-        $laki_laki = DB::table('ijazah')
-        ->get('jeniskelamin')
-        ->where('jeniskelamin', '=', 'Laki-Laki')
-        ->count();
-
-        $baik = DB::table('ijazah')
-        ->get('predikat')
-        ->where('predikat', '=', 'Baik')
-        ->count();
-
-        $memuaskan = DB::table('ijazah')
-        ->get('predikat')
-        ->where('predikat', '=', 'Memuaskan')
-        ->count();
-
-        $sangatmemuaskan = DB::table('ijazah')
-        ->get('predikat')
-        ->where('predikat', '=', 'Sangat Memuaskan')
-        ->count();
-
-        $denganpujian = DB::table('ijazah')
-        ->get('predikat')
-        ->where('predikat', '=', 'Dengan Pujian')
-        ->count();
         
         return view('Admin.index', compact('ijazah','list_prodi','predikat','tanggal', 'no', 'perempuan', 'laki_laki', 'baik', 'memuaskan', 'sangatmemuaskan', 'denganpujian'));
     }
@@ -387,7 +814,7 @@ class AdminController extends Controller
                 // $nama_file = $namauser . "." . $file->getClientOriginalExtension();
                 // $nama_file = time() . rand(100, 999) . "." . $file->getClientOriginalExtension();
                 // $nama_file = date('YmdHis') . "." . $file->getClientOriginalExtension();
-                $nama_file = $n . "." . $file->getClientOriginalExtension();
+                $nama_file = $n . "-" . $file->getClientOriginalExtension();
                 $path = 'ijazah';
                 $file->getMimeType();
                 $file->move($path, $nama_file);
@@ -402,7 +829,7 @@ class AdminController extends Controller
                 // $nama_file = $namauser . "." . $file->getClientOriginalExtension();
                 // $nama_file = time() . rand(100, 999) . "." . $file->getClientOriginalExtension();
                 // $nama_file = date('YmdHis') . "." . $file->getClientOriginalExtension();
-                $nama_file = $n . "." . $file->getClientOriginalExtension();
+                $nama_file = $n . "-" . $file->getClientOriginalExtension();
                 $path = 'transkrip';
                 $file->getMimeType();
                 $file->move($path, $nama_file);
@@ -491,44 +918,69 @@ return redirect('/admin/dataalumni')->with('success', 'Berhasil menambahkan data
 }
 
 
-    public function editIjazah($id, Request $request)
-    {
-        $n = $request->namaMhs;
+public function editIjazah($id, Request $request)
+{
+    $n = $request->namaMhs;
+    $ijazah = ijazah::find($id);
 
-        $data = new ijazah;
-        if ($request->file('ijazah')) {
-                $file = $request->file('ijazah');
-                // $namauser = $namauser;
-                $ext = $file->getClientOriginalExtension();
-                // $nama_file = $namauser . "." . $file->getClientOriginalExtension();
-                // $nama_file = time() . rand(100, 999) . "." . $file->getClientOriginalExtension();
-                // $nama_file = date('YmdHis') . "." . $file->getClientOriginalExtension();
-                $nama_file = $n . "." . $file->getClientOriginalExtension();
-                $path = 'ijazah';
-                $file->getMimeType();
-                $file->move($path, $nama_file);
-                $data->file = $nama_file;
+    
+    try {
+        
+        $fileijazah = $ijazah->ijazah;
+        $filetranskrip = $ijazah->transkrip;
+
+        if ($request->ijazah != null) {
+            if ($fileijazah != null) {
+                $file = public_path('/ijazah/') . $fileijazah;
+                if (file_exists($file)) {
+                    unlink($file);
+                }
+            }
+
+            $nameIjazah = $n . "-" . $request->ijazah->getClientOriginalName();
+            $request->ijazah->move(public_path() . '/ijazah', $nameIjazah);
+        } else {
+            $nameIjazah = $fileijazah;
         }
 
-        $ijazah = ijazah::find($id);
-        $ijazah->no_ijazah = $request->no_ijazah;
-        $ijazah->nim = $request->nim;
-        $ijazah->ipk = $request->ipk;
-        $ijazah->namaMhs = $request->namaMhs;
-        $ijazah->jeniskelamin = $request->jeniskelaminn;
-        $ijazah->periode = $request->periode; 
-        $ijazah->angkatan = $request->angkatan;
-        $ijazah->prodi = $request->prodi;
-        $ijazah->fakultas = $request->fakultas;
-        $ijazah->tahunlulus = $request->tahunlulus;
-        $ijazah->predikat = $request->predikatt;
-        $ijazah->ijazah = $data->file;
-        $ijazah->transkrip = $data->file;
-        $ijazah->save();
-            
 
-        return redirect('/admin/dataalumni')->with('success', 'Berhasil mengubah data');
+        if ($request->transkrip != null) {
+            if ($filetranskrip != null) {
+                $file = public_path('/transkrip/') . $filetranskrip;
+                if (file_exists($file)) {
+                    unlink($file);
+                }
+            }
+
+            $nameTranskrip = $n . "-" . $request->transkrip->getClientOriginalName();
+            $request->transkrip->move(public_path() . '/transkrip', $nameTranskrip);
+        } else {
+            $nameTranskrip = $filetranskrip;
+        }
+    } catch (Exception $e) {
+        return redirect('/admmin/biro')->with('fail', 'Gagal construct data. Silahkan coba lagi');
     }
+
+
+    
+    $ijazah->no_ijazah = $request->no_ijazah;
+    $ijazah->nim = $request->nim;
+    $ijazah->ipk = $request->ipk;
+    $ijazah->namaMhs = $request->namaMhs;
+    $ijazah->jeniskelamin = $request->jeniskelaminn;
+    $ijazah->periode = $request->periode; 
+    $ijazah->angkatan = $request->angkatan;
+    $ijazah->prodi = $request->prodi;
+    $ijazah->fakultas = $request->fakultas;
+    $ijazah->tahunlulus = $request->tahunlulus;
+    $ijazah->predikat = $request->predikatt;
+    $ijazah->ijazah = $nameIjazah;
+    $ijazah->transkrip = $nameTranskrip;
+    $ijazah->save();
+        
+
+    return redirect('/admin/dataalumni')->with('success', 'Berhasil mengubah data');
+}
 
     public function deleteIjazah($id)
     {
@@ -544,7 +996,7 @@ return redirect('/admin/dataalumni')->with('success', 'Berhasil menambahkan data
     }
     public function openijazah($id)
     {
-        $path = public_path('ijazah/' . $id . '.pdf');
+        $path = public_path('ijazah/' . $id );
         header("Content-type: application/pdf");
         header("Content-Length: " . filesize($path));
         readfile($path);
@@ -552,15 +1004,24 @@ return redirect('/admin/dataalumni')->with('success', 'Berhasil menambahkan data
 
     public function opentranskrip($id)
     {
-        $path = public_path('transkrip/' . $id . '.pdf');
+        $path = public_path('transkrip/' . $id );
         header("Content-type: application/pdf");
         header("Content-Length: " . filesize($path));
         readfile($path);
     }
 
- 
+    public function registermahasiswa(Request $request)
+    {
+    User::create([
+        'nim' => $request->nim,
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'level' => $request->level,
+    ]);
+    return redirect('/admin/dataalumni')->with('success', 'Berhasil menambahkan data');
 
-
+    }
     
 }
     

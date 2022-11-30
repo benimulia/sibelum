@@ -160,17 +160,18 @@
                 
             <div class="form-group">
                 <label for="jeniskelamin">Jenis Kelamin :</label>
-                <input type="text" class="form-control" id="jeniskelamin" placeholder="Masukkan jeniskelamin" name="jeniskelamin" required value="{{$ijazah->jeniskelamin}}" disabled=true>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
                 <br>
                 <select name="jeniskelaminn" id="jeniskelaminn" class="form-select form-select-sm" aria-label=".form-select-sm example" required value="{{$ijazah->jeniskelamin}}" disabled=true>
                         <option selected>-- Pilih jeniskelamin --</option>
                         @foreach ($jeniskelamin as $jeniskelamin)
-                        <option value="{{ $jeniskelamin->gender }}">{{ $jeniskelamin->gender }}</option>
+                        <option value="{{ $jeniskelamin->gender }}" {{ ( $ijazah->jeniskelamin == $jeniskelamin->gender) ? 'selected' : '' }}>{{ $jeniskelamin->gender }}</option>
                         @endforeach
 
                 </select>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
             </div>
         
 
@@ -191,101 +192,96 @@
            
             <div class="form-group">
                 <label for="prodi">Prodi :</label>
-                <input type="text" class="form-control" id="prodi1" placeholder="Masukkan Prodi" name="prodi" required value="{{$ijazah->prodi}}" disabled=true>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
                 <br>
                 <select name="prodi" id="prodi" class="form-select form-select-sm" aria-label=".form-select-sm example" required value="{{$ijazah->prodi}}" disabled=true>
                         <option selected>-- Pilih Prodi --</option>
                         @foreach ($prodi as $p)
-                        <option value="{{ $p->nama_prodi }}">{{ $p->nama_prodi }}</option>
+                        <option value="{{ $p->nama_prodi }}" {{ ( $ijazah->prodi == $p->nama_prodi) ? 'selected' : '' }}>{{ $p->nama_prodi }}</option>
                         @endforeach
 
                 </select>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
             </div>
         
             <div class="form-group">
                 <label for="fakultas">Fakultas :</label>
-                <input type="int" class="form-control" id="fakultas1" placeholder="Masukkan Fakultas" name="fakultas" required value="{{$ijazah->fakultas}}" disabled=true>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
                 <br>
                 <select name="fakultas" id="fakultas" class="form-select form-select-sm" aria-label=".form-select-sm example" required  value="{{$ijazah->fakultas}}" disabled=true>
                         <option selected>-- Pilih Fakultas --</option>
                         @foreach ($fakultas as $f)
-                        <option value="{{ $f->nama_fakultas }}">{{ $f->nama_fakultas }}</option>
+                        <option value="{{ $f->nama_fakultas }}" {{ ( $ijazah->fakultas == $f->nama_fakultas) ? 'selected' : '' }}>{{ $f->nama_fakultas }}</option>
                         @endforeach
                 </select>
+                
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
             </div>
             <div class="form-group">
                 <label for="tahunlulus">Tahun Lulus  :</label>
-                <input type="text" class="form-control" id="tahunlulus1" placeholder="Masukkan Tahun Lulus" name="tahunlulus" required value="{{$ijazah->tahunlulus}}" disabled=true>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
                 <br>
                 <select name="tahunlulus" id="tahunlulus" class="form-select form-select-sm" aria-label=".form-select-sm example" required value="{{$ijazah->tahunlulus}}" disabled=true>   
                         <option selected>-- Pilih Tahun Lulus --</option>
                         @foreach ($tahun as $th)
-                        <option value="{{ $th->tahun }}">{{ $th->tahun }}</option>
+                        <option value="{{ $th->tahun }}" {{ ( $ijazah->tahunlulus == $th->tahun) ? 'selected' : '' }}>{{ $th->tahun }}</option>
                         @endforeach
                 </select>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
             </div>
             <div class="form-group">
                 <label for="periode"> Periode   :</label>
-                <input type="text" class="form-control" id="periode1" placeholder="Masukkan Periode Lulus Mahasiswa" name="periode" required value="{{$ijazah->periode}}" disabled=true>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
                 <br>
                 <select name="periode" id="periode" class="form-select form-select-sm" aria-label=".form-select-sm example" required value="{{$ijazah->periode}}" disabled=true>
                         <option selected>-- Pilih Periode --</option>
                         @foreach ($tanggal as $tg)
-                        <option value="{{ $tg->tanggal }}">{{ $tg->tanggal }}</option>
+                        <option value="{{ $tg->tanggal }}" {{ ( $ijazah->periode == $tg->tanggal) ? 'selected' : '' }}>{{ $tg->tanggal }}</option>
                         @endforeach
                         
                 </select>
+
+                
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
             </div>
 
             <div class="form-group">
                 <label for="predikat">Predikat :</label>
-                <input type="text" class="form-control" id="predikat" placeholder="Masukkan predikat" name="predikat" required value="{{$ijazah->predikat}}" disabled=true>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
                 <br>
                 <select name="predikatt" id="predikatt" class="form-select form-select-sm" aria-label=".form-select-sm example" required value="{{$ijazah->predikat}}" disabled=true>
                         <option selected>-- Pilih predikat --</option>
                         @foreach ($keterangan as $keterangan)
-                        <option value="{{ $keterangan->keterangan }}">{{ $keterangan->keterangan }}</option>
+                        <option value="{{ $keterangan->keterangan }}" {{ ( $ijazah->predikat == $keterangan->keterangan) ? 'selected' : '' }}>{{ $keterangan->keterangan }}</option>
                         @endforeach
 
                 </select>
+
+                
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
             </div>
 
             <div class="form-group">
-                <label for="ijazah">Ijazah :</label>
-                <input type="int" class="form-control" id="ijazah1" placeholder="Masukkan ijazah" name="ijazah" required value="{{$ijazah->ijazah}}" disabled=true>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="col">
-                <label for="ijazah"><h6>Ijazah  :</h6></label>
-                <br>
-                <input type="file" class="form-control-file" id="ijazah" name="ijazah" required="required" disabled=true>
+                <label for="ijazah">Ijazah :</label> <br>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input form-control" id="ijazah" name="ijazah" accept=".pdf" disabled=true />
+                    <label class="custom-file-label" for="ijazah">{{$ijazah->ijazah}}</label>
+                </div>
+                <div>
+                    <small>*Ukuran Ijazah Maksimal 2Mb.</small>
+                </div>
             </div>
             <br>
-            <!-- <div class="col-xs-12 col-sm-12 col-md-12 ">
-                <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary">Submit</button>
-                <a href="/admin/dataalumni" class="btn btn-danger">Cancel</a>
-            </div>   -->
+
             <div class="form-group">
-                <label for="transkrip">Transkrip :</label>
-                <input type="int" class="form-control" id="transkrip1" placeholder="Masukkan transkrip" name="ijazah" required value="{{$ijazah->transkrip}}" disabled=true>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="col">
-                <label for="transkrip"><h6>Transkrip  :</h6></label>
-                <br>
-                <input type="file" class="form-control-file" id="transkrip" name="transkrip" required="required" disabled=true>
+                <label for="transkrip">Transkrip :</label> <br>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input form-control" id="transkrip" name="transkrip" accept=".pdf" disabled=true />
+                    <label class="custom-file-label" for="transkrip">{{$ijazah->transkrip}}</label>
+                </div>
+                <div>
+                    <small>*Ukuran Transkrip Maksimal 2Mb.</small>
+                </div>
             </div>
             <br>
             <div class="col-xs-12 col-sm-12 col-md-12 ">
@@ -340,6 +336,38 @@
 
         $("#btnUpdate").css("display", "");
     }
+
+    $('#ijazah').on('change', function() {
+        //get the file name
+        var fileName = $(this).val();
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
+        readURL(this);
+
+    })
+    $('#ijazah').bind('change', function() {
+        if (this.files[0].size / 1024 / 1024 > 2) {
+            alert("Ukuran foto yang Anda masukkan lebih dari 2 MB. Mohon input ulang");
+            $(this).val('');
+            $(this).next('.custom-file-label').html('Masukkan gambar berita');
+        }
+    });
+
+    $('#transkrip').on('change', function() {
+        //get the file name
+        var fileName = $(this).val();
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
+        readURL(this);
+
+    })
+    $('#transkrip').bind('change', function() {
+        if (this.files[0].size / 1024 / 1024 > 2) {
+            alert("Ukuran foto yang Anda masukkan lebih dari 2 MB. Mohon input ulang");
+            $(this).val('');
+            $(this).next('.custom-file-label').html('Masukkan gambar berita');
+        }
+    });
 
     (function() {
         'use strict';
