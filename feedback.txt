@@ -1,0 +1,14 @@
+Revisi admin :
+- syarat no ijazah dan check ganda [done]
+- cek double nim [done]
+- cek validasi Ipk [done]
+- fakultas dan prodi dibaca dari nim => syulit
+- batasan untuk tahun lulus => syulit
+- kontradiksi antara tahun lulus dan wisuda => tahun lulus emang bisa beda sama wisuda, jadi menurutku biarin aja gitu
+- predikat pujian tidak diinputkan tapi dihitung => [gak jadi]
+- alumni bisa ubah password [done]
+- di form regis tidak perlu ada confirm pass [done]
+- ganti email default dengan format nim@ukdw.ac.id [done]
+- pisahkan dashboard dan data alumni (tambahkan satu menu untuk data alumni) [done]
+- dashboard bisa diklik dan menampilkan (nama,nim,angkatan, dll bebas menurut kk baiknya apa aja ya) => syulit
+- arti warna dan ukuran kotak dan spasi dashboard dan font diperhatikan:) [done]

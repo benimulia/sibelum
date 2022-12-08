@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\ijazah;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 
 class AlumniController extends Controller
@@ -82,6 +83,37 @@ class AlumniController extends Controller
         header("Content-type: application/pdf");
         header("Content-Length: " . filesize($path));
         readfile($path);
+    }
+
+    public function vupdatepassword(){
+        //ke view update password
+        $uid = auth()->user()->id;
+        $user = User::find($uid);
+       
+        return view ('Alumni.updatepassword', compact('user'));
+    }
+
+    public function updatepassword($id, Request $request){
+        //cari mahasiswa yg sedang login
+        $user = User::find($id);
+
+        //cek apakah password lama nya benar
+        if(Hash::check($request->passwordlama, $user->password)){
+            //kalau benar langsung update password
+            try{
+                $user->password = Hash::make($request->password);
+                $user->save();
+            }catch(\Illuminate\Database\QueryException $ex){
+                return redirect('alumni/vupdatepassword')->with('fail', 'Gagal update password');
+            }
+
+            return redirect('alumni/vupdatepassword')->with('success', 'Berhasil update password');
+
+        }else{
+            //kalau password lama salah
+            return redirect('alumni/vupdatepassword')->with('fail', 'Password lama salah');
+        }
+        
     }
 
 }

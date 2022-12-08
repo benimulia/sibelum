@@ -122,13 +122,54 @@
     </div>
 </div>
 @endif
-
+<div class="row mb-4">
+    <div class="col-md-12">
+        <form action="/biro" method="GET">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <label for="filterprodi">Prodi</label>
+                    <select name="filterprodi" id="filterprodi" class="custom-select custom-select-sm">
+                        <option value="">Pilih Prodi</option>
+                        @foreach($list_prodi as $prodi)
+                        <option value="{{$prodi->nama_prodi}}">{{$prodi->nama_prodi}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <label for="filterpredikat">Predikat</label>
+                    <select name="filterpredikat" id="filterpredikat" class="custom-select custom-select-sm">
+                        <option value="">Pilih Predikat</option>
+                        @foreach ($predikat as $kt)
+                        <option value="{{ $kt->keterangan }}">{{ $kt->keterangan }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <label for="filterperiode">Periode</label>
+                    <select name="filterperiode" id="filterperiode" class="custom-select custom-select-sm">
+                        <option value="">Pilih Periode</option>
+                        @foreach ($tanggal as $tg)
+                        <option value="{{ $tg->tanggal }}">{{ $tg->tanggal }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <label for="filterangkatan">Angkatan :</label>
+                    <input type="number" class="form-control" id="filterangkatan" placeholder="Masukkan Angkatan"
+                        name="filterangkatan">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a href="/biro" class="btn btn-danger">Clear</a>
+        </form>
+    </div>
+</div>
 <div class="row mb-4 ml-2">
     <div class="col-lg-3 border rounded p-2 mr-4">
         <div class="row ml-2">
             <h3>JENIS KELAMIN</h3>
         </div>
-        <div class="card card-stats bg-danger">
+        <div class="card card-stats" style="background-color: #FF66CC !important;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-5 col-md-4">
@@ -152,7 +193,7 @@
                 </div>
             </div>
         </div>
-        <div class="card card-stats bg-primary">
+        <div class="card card-stats" style="background-color: #0066CC !important;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-5 col-md-4">
@@ -170,7 +211,7 @@
             <div class="card-footer">
                 <hr>
                 <div class="stats">
-                    <p><b>Jumlah Alumni Laki-Laki</b></p>
+                    <p><b>Jumlah Alumni Laki-Laki</b></p> <br>
                 </div>
             </div>
         </div>
@@ -181,7 +222,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="card card-stats bg-warning">
+                <div class="card card-stats" style="background-color: #FFCC00 !important;">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5 col-md-4">
@@ -200,13 +241,13 @@
                     <div class="card-footer">
                         <hr>
                         <div class="stats">
-                            <p><b>Jumlah Alumni Predikat Baik</b></p>
+                            <p><b>Jumlah Alumni Predikat Baik</b></p> <br>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card card-stats bg-info">
+                <div class="card card-stats" style="background-color: #C8A2C8 !important;">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5 col-md-4">
@@ -233,7 +274,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="card card-stats bg-secondary">
+                <div class="card card-stats" style="background-color: #C4A484 !important;">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5 col-md-4">
@@ -258,7 +299,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card card-stats bg-success">
+                <div class="card card-stats" style="background-color: #83D021 !important;">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5 col-md-4">
@@ -289,159 +330,6 @@
     </div>
 </div>
 
-
-<div class="row">
-    <div class="col-sm-12 col-md-12">
-        <nav aria-label="breadcrumb" role="navigation">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">Admin</a></li>
-                <li class="breadcrumb-item">Ijazah </a></li>
-            </ol>
-        </nav>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12 col-md-16">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h7>Daftar Berkas Alumni UKDW</h7>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 col-sm-4" style="margin-bottom:10px">
-                        <a href="/admin/tambahijazah" class="btn btn-primary btn-md active" role="button"
-                            aria-pressed="true"> <i class="fa fa-plus"></i>Tambah data</a>
-                        <a href="/admin/fakultasprodi" class="btn btn-primary btn-md active" role="button"> <i
-                                class="fa fa-plus"></i> Tambah Fakultas</a>
-                        <a href="/admin/prodi" class="btn btn-primary btn-md active" role="button"> <i
-                                class="fa fa-plus"></i> Tambah Prodi</a>
-                        <a href="/admin/tahun" class="btn btn-primary btn-md active" role="button"> <i
-                                class="fa fa-plus"></i> Tambah Tahun </a>
-                        <a href="/admin/tanggal" class="btn btn-primary btn-md active" role="button"> <i
-                                class="fa fa-plus"></i> Tambah Tanggal </a>
-                       
-                        <!-- <a href="/admin/grafikangkatan" class="btn btn-primary btn-md active" role="button"> <i class="fa fa-plus"></i>  Lihat grafik Angkatan</a> -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <form action="/biro" method="GET">
-                            <div class="form-row align-items-center">
-                                <div class="col-auto">
-                                    <label for="filterprodi">Prodi</label>
-                                    <select name="filterprodi" id="filterprodi" class="custom-select custom-select-sm">
-                                        <option value="">Pilih Prodi</option>
-                                        @foreach($list_prodi as $prodi)
-                                        <option value="{{$prodi->nama_prodi}}" >{{$prodi->nama_prodi}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-auto">
-                                    <label for="filterpredikat">Predikat</label>
-                                    <select name="filterpredikat" id="filterpredikat" class="custom-select custom-select-sm">
-                                        <option value="">Pilih Predikat</option>
-                                        @foreach ($predikat as $kt)
-                                        <option value="{{ $kt->keterangan }}">{{ $kt->keterangan }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-auto">
-                                    <label for="filterperiode">Periode</label>
-                                    <select name="filterperiode" id="filterperiode" class="custom-select custom-select-sm">
-                                        <option value="">Pilih Periode</option>
-                                        @foreach ($tanggal as $tg)
-                                        <option value="{{ $tg->tanggal }}">{{ $tg->tanggal }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-auto">
-                                    <label for="filterangkatan">Angkatan :</label>
-                                    <input type="number" class="form-control" id="filterangkatan"
-                                        placeholder="Masukkan Angkatan" name="filterangkatan">
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table id="table" class="table table-striped table-bordered" style="width:100%"
-                                cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>No </th>
-                                        <th>No Ijazah</th>
-                                        <th>NIM</th>
-                                        <th>Nama Mahasiswa</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>IPK</th>
-                                        <th>Periode</th>
-                                        <th>Angkatan</th>
-                                        <th>Prodi</th>
-                                        <th>Fakultas</th>
-                                        <th>Tahun Lulus</th>
-                                        <th>Predikat</th>
-                                        <th>Ijazah</th>
-                                        <th>Transkrip</th>
-                                        <th data-orderable="false"></th>
-                                        <th data-orderable="false"></th>
-                                        <br>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($ijazah as $index => $result)
-                                    <tr>
-                                        <td>{{$no++}}</td>
-                                        <td>{{$result->no_ijazah}}</td>
-                                        <td>{{$result->nim}}</td>
-                                        <td>{{$result->namaMhs}}</td>
-                                        <td>{{$result->jeniskelamin}}</td>
-                                        <td>{{$result->ipk}}</td>
-                                        <td>{{$result->periode}}</td>
-                                        <td>{{$result->angkatan}}</td>
-                                        <td>{{$result->prodi}}</td>
-                                        <td>{{$result->fakultas}}</td>
-                                        <td>{{$result->tahunlulus}}</td>
-                                        <td>{{$result->predikat}}</td>
-
-
-                                        <td>
-                                            <a href="/admin/openijazah/{{$result->ijazah}}" target="_blank"
-                                                class="btn btn-warning">
-                                                <i class="fa fa-folder-open-o"></i></a> <span
-                                                class="glyphicon glyphicon-eye-open">
-                                                </a>
-                                        </td>
-                                        <td>
-                                            <a href="/admin/opentranskrip/{{$result->transkrip}}" target="_blank"
-                                                class="btn btn-warning">
-                                                <i class="fa fa-folder-open-o"></i></a> <span
-                                                class="glyphicon glyphicon-eye-open">
-                                                </a>
-                                        </td>
-                                        <td><a href="/admin/ijazah/edit/{{ $result->id_ijazah }}"
-                                                class="btn btn-success"> <i class="fa fa-pencil"></i></a>
-                                        </td>
-                                        </td>
-                                        <td><a href="/admin/ijazah/delete/{{ $result->id_ijazah }}"
-                                                class="btn btn-danger"> <i class="fa fa-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
 
 @section('script')

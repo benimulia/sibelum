@@ -39,15 +39,17 @@
                 <input type="text" class="form-control" id="no_ijazah" placeholder="Masukkan No Ijazah" name="no_ijazah"
                     required>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
             <div class="form-group">
                 <label for="nim">NIM :</label>
-                <input type="text" class="form-control" id="nim" placeholder="Masukkan NIM mahasiswa" name="nim"
-                    required>
+                <input type="number" class="form-control" id="nim" placeholder="Masukkan NIM mahasiswa" name="nim"
+                    onkeypress='validateInt(event)' required
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    maxlength="8">
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
             <div class="form-group">
@@ -55,7 +57,7 @@
                 <input type="text" class="form-control" id="namaMhs" placeholder="Masukkan Nama Mahasiswa"
                     name="namaMhs" required>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
 
@@ -69,14 +71,17 @@
                     @endforeach
                 </select>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
             <div class="form-group">
                 <label for="ipk">IPK :</label>
-                <input type="text" class="form-control" id="ipk" placeholder="Masukkan ipk" name="ipk" required>
+                <input type="number" class="form-control" id="number" value={{old('ipk')}} placeholder="Masukkan ipk"
+                    name="ipk" required onkeypress='validateInt(event)' min=0 max=4.0
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    maxlength="3">
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
             <div class="form-group">
@@ -84,7 +89,7 @@
                 <input type="text" class="form-control" id="angkatan" placeholder="Masukkan Angkatan" name="angkatan"
                     required>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
             <div class="form-group">
@@ -97,7 +102,7 @@
                     @endforeach
                 </select>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
             <div class="form-group">
@@ -111,7 +116,7 @@
 
                 </select>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
             <div class="form-group">
@@ -124,7 +129,7 @@
                     @endforeach
                 </select>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
             <div class="form-group">
@@ -138,7 +143,7 @@
 
                 </select>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
             <div class="form-group">
@@ -151,7 +156,7 @@
                     @endforeach
                 </select>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Error.</div>
             </div>
 
             <div class="col">
@@ -159,7 +164,8 @@
                     <h6>Ijazah :</h6>
                 </label>
                 <br>
-                <input type="file" class="form-control-file" id="ijazah" name="ijazah" required="required" accept=".pdf">
+                <input type="file" class="form-control-file" id="ijazah" name="ijazah" required="required"
+                    accept=".pdf">
             </div>
             <br>
             <div class="col">
@@ -167,7 +173,8 @@
                     <h6>transkrip :</h6>
                 </label>
                 <br>
-                <input type="file" class="form-control-file" id="transkrip" name="transkrip" required="required" accept=".pdf">
+                <input type="file" class="form-control-file" id="transkrip" name="transkrip" required="required"
+                    accept=".pdf">
             </div>
             <br>
             <div class="col-xs-12 col-sm-12 col-md-12 ">
@@ -240,5 +247,22 @@ $('#transkrip').bind('change', function() {
         });
     }, false);
 })();
+
+function validateInt(evt) {
+    var theEvent = evt || window.event;
+    // Handle paste
+    if (theEvent.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+    } else {
+        // Handle key press
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+    }
+    var regex = /[0-9]|\./;
+    if (!regex.test(key)) {
+        theEvent.returnValue = false;
+        if (theEvent.preventDefault) theEvent.preventDefault();
+    }
+}
 </script>
 @endsection

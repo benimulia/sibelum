@@ -104,121 +104,6 @@
 @section('content')
 
 
-<!-- <div class="row">
-<div class="col-lg-3 col-md-6 col-sm-6">
-      <div class="card card-stats">
-         <div class="card-body">
-            <div class="row">
-               <div class="col-5 col-md-4">
-                  <div class="icon-big text-center icon-warning">
-                     <i class="fa fa-venus" aria-hidden="true"></i>
-                  </div>
-               </div>
-               <div class="col-7 col-md-8">
-               
-                  <div class="numbers">
-                     <h5> {{$perempuan}} orang </h5>
-                  </div>
-               </div>
-               
-            </div>
-         </div>
-         <div class="card-footer">
-            <hr>
-            <div class="stats">
-               <p><b>Jumlah Alumni Perempuan</b></p>
-            </div>
-         </div>
-      </div>
-   </div>
-    -->
-
-<!-- 
-   
-<div class="col-lg-3 col-md-6 col-sm-6" style="left: 7px;">
-      <div class="card card-stats">
-         <div class="card-body">
-            <div class="row">
-               <div class="col-5 col-md-4">
-                  <div class="icon-big text-center icon-warning">
-                     <i class="fa fa-mars" aria-hidden="true"></i>
-                  </div>
-               </div>
-               <div class="col-7 col-md-8">
-                  <div class="numbers">
-                     <h5>{{$laki_laki }} Orang</h5>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="card-footer">
-            <hr>
-            <div class="stats">
-               <p><b>Jumlah Alumni Laki-Laki</b></p>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-lg-3 col-md-6 col-sm-6" style="left: 5px;">  <!-- rata kiri dashboard -->
-
-
-
-<!-- <div class="card card-stats">
-         <div class="card-body">
-            <div class="row">
-               <div class="col-5 col-md-4">
-                  <div class="icon-big text-center icon-warning">
-                     <i class="fa fa-smile-o text-warning" aria-hidden="true"></i>
-                  </div>
-               </div>
-               <div class="col-7 col-md-8">
-                  <div class="numbers">
-                     <h5>{{$ipktinggi }} Orang</h5>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="card-footer">
-            <hr>
-            <div class="stats">
-               <p><b>Jumlah IPK Tertinggi</b></p>
-            </div>
-         </div>
-      </div>
-   </div> -->
-
-<!--    
-<div class="col-lg-3 col-md-6 col-sm-6" style="left: 7px;">
-      <div class="card card-stats">
-         <div class="card-body">
-            <div class="row">
-               <div class="col-5 col-md-4">
-                  <div class="icon-big text-center icon-warning">
-                     <i class="fa fa-smile-o text-warning" aria-hidden="true"></i>
-                  </div>
-               </div>
-               <div class="col-7 col-md-8">
-                  <div class="numbers">
-                     <h5>{{$ipkrendah }} Orang</h5>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="card-footer">
-            <hr>
-            <div class="stats">
-               <p><b>Jumlah IPK Terendah</b></p>
-            </div>
-         </div>
-      </div>
-   </div>
-</div> -->
-
-
-
-
-
-
 <div class="row">
     <div class="col-sm-12 col-md-12">
         <nav aria-label="breadcrumb" role="navigation">
@@ -252,6 +137,9 @@
 <div class="row">
     <div class="col-sm-12 col-md-12">
 
+        @if(is_null($ijazah))
+        <p>Belum Ada Ijazah. Hubungi Administrator</p>
+        @else
         <a href="/alumni/openijazah/{{$ijazah->namaMhs}}" class="btn btn-info">Lihat Ijazah</a>
         <a href="/alumni/opentranskrip/{{$ijazah->namaMhs}}" class="btn btn-info">Lihat Transkrip</a>
         <hr>
@@ -324,6 +212,8 @@
 
         </form>
         <hr>
+
+        @endif
     </div>
 </div>
 

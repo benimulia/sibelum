@@ -73,16 +73,27 @@ Coded by www.creative-tim.com
             </a>
           </li>
         </ul>
+
+        <ul class="nav">
+          </li>
+          <li class="{{ (request()->is('admin/dataalumni*')) ? 'active' : '' }}">
+            <a href="/admin/dataalumni">
+              <i class="nc-icon nc-single-copy-04"></i>
+              <p>Data Alumni</p>
+            </a>
+          </li>
+        </ul>
        
         <ul class="nav">
           </li>
-          <li class="{{ (request()->is('register*')) ? 'active' : '' }}">
+          <li class="{{ (request()->is('admin/register*')) ? 'active' : '' }}">
             <a href="/admin/registermahasiswa">
               <i class="nc-icon nc-single-copy-04"></i>
               <p>Register Mahasiswa</p>
             </a>
           </li>
         </ul>
+
 
       </div>
     

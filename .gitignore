@@ -1,6 +1,9 @@
 /node_modules
 /public/hot
 /public/storage
+/public/ijasah
+/public/ijazah
+/public/transkrip
 /storage/*.key
 /vendor
 .env

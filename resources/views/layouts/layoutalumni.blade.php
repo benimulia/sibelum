@@ -66,18 +66,25 @@ Coded by www.creative-tim.com
       <div class="sidebar-wrapper">
         <ul class="nav">
           </li>
-          <li class="{{ (request()->is('admin/dataalumni*')) ? 'active' : '' }}">
+          <li class="{{ (request()->is('alumni/home*')) ? 'active' : '' }}">
             <a href="/alumni">
               <i class="nc-icon nc-single-copy-04"></i>
               <p>Profil </p>
             </a>
           </li>
-          <li class="{{ (request()->is('manager/laporan*')) ? 'active' : '' }}">
+          <li class="{{ (request()->is('alumni/dataalumni*')) ? 'active' : '' }}">
             <a href="/alumni/dataalumni">
               <i class="nc-icon nc-single-copy-04"></i>
               <p>Alumni </p>
             </a>
           </li>
+          <li class="{{ (request()->is('alumni/vupdatepassword*')) ? 'active' : '' }}">
+            <a href="/alumni/vupdatepassword">
+              <i class="nc-icon nc-single-copy-04"></i>
+              <p>Update Password </p>
+            </a>
+          </li>
+
         </ul>
       </div>
     

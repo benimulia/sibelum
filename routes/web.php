@@ -45,7 +45,7 @@ Route::group(['middleware' =>['auth']], function(){
 
         Route::post('/admin/registermahasiswa/create','App\Http\Controllers\AdminController@registermahasiswa')->name('registermahasiswa');
 
-        Route::get('/admin/dataalumni', 'App\Http\Controllers\AdminController@index')->name('admin');
+        Route::get('/admin/dataalumni', 'App\Http\Controllers\AdminController@DataAlumni')->name('dataalumni');
         Route::get('/admin/tambahijazah','App\Http\Controllers\AdminController@tambahIjazah')->name('tambahijasa');
         Route::get('/admin/fakultasprodi','App\Http\Controllers\AdminController@tambahfakultasprodi')->name('tambahfakultasprodi');
         Route::get('/admin/prodi','App\Http\Controllers\AdminController@tambahprodi')->name('tambahprodi');
@@ -73,6 +73,9 @@ Route::group(['middleware' =>['auth']], function(){
         Route::get('/alumni/openijazah/{id}', 'App\Http\Controllers\AlumniController@openijazah')->name('openijazah');
         Route::get('/alumni/opentranskrip/{id}', 'App\Http\Controllers\AlumniController@opentranskrip')->name('opentranskrip');
         Route::get('/alumni/dataalumni','App\Http\Controllers\AlumniController@dataalumni')->name('dataalumni');
+
+        Route::get('/alumni/vupdatepassword','App\Http\Controllers\AlumniController@vupdatepassword')->name('vupdatepassword');
+        Route::post('/alumni/updatepassword/{id}','App\Http\Controllers\AlumniController@updatepassword')->name('updatepassword');
     });
 });
 Auth::routes();
