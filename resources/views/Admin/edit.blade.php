@@ -158,7 +158,7 @@
             </div>
             <div class="form-group">
                 <label for="namaMhs"> Nama Mahasiswa :</label>
-                <input type="text" class="form-control" id="namaMhs" placeholder="Masukkan Nama Mahasiswa"
+                <input type="text" class="form-control" id="nama_mhs" placeholder="Masukkan Nama Mahasiswa"
                     name="namaMhs" required value="{{$ijazah->namaMhs}}" disabled=true>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
@@ -351,8 +351,8 @@ function enableInput() {
     document.getElementById("no_ijazah").disabled = false;
     document.getElementById("nim").disabled = false;
     document.getElementById("jeniskelaminn").disabled = false;
-    document.getElementById("ipk").disabled = false;
-    document.getElementById("namaMhs").disabled = false;
+    document.getElementById("number").disabled = false;
+    document.getElementById("nama_mhs").disabled = false;
     document.getElementById("periode").disabled = false;
     document.getElementById("angkatan").disabled = false;
     document.getElementById("prodi").disabled = false;
