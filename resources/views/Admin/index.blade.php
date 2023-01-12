@@ -165,7 +165,8 @@
     </div>
 </div>
 <div class="row mb-4 ml-2">
-    <div class="col-lg-3 border rounded p-2 mr-4">
+    
+    <div class="col-sm-6 col-md-4 rounded p-2 mr-4" style="border: 1px solid">
         <div class="row ml-2">
             <h3>JENIS KELAMIN</h3>
         </div>
@@ -216,7 +217,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-7 border rounded p-2">
+    <div class="col-sm-6 col-md-7 rounded p-2" style="border: 1px solid">
         <div class="row ml-2">
             <h3>PREDIKAT</h3>
         </div>

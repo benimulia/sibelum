@@ -140,8 +140,8 @@
         @if(is_null($ijazah))
         <p>Belum Ada Ijazah. Hubungi Administrator</p>
         @else
-        <a href="/alumni/openijazah/{{$ijazah->namaMhs}}" class="btn btn-info">Lihat Ijazah</a>
-        <a href="/alumni/opentranskrip/{{$ijazah->namaMhs}}" class="btn btn-info">Lihat Transkrip</a>
+        <a href="/alumni/openijazah/{{$ijazah->ijazah}}" class="btn btn-info">Lihat Ijazah</a>
+        <a href="/alumni/opentranskrip/{{$ijazah->transkrip}}" class="btn btn-info">Lihat Transkrip</a>
         <hr>
         <form action="/alumni/edit/{{$user->id}}" class="needs-validation" novalidate method="POST"
             enctype="multipart/form-data" onsubmit="return confirm('Apakah anda yakin untuk mengubah data?');">

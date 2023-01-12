@@ -71,7 +71,7 @@ class AlumniController extends Controller
 
     public function openijazah($id)
     {
-        $path = public_path('ijazah/' . $id . '.pdf');
+        $path = public_path('ijazah/' . $id );
         header("Content-type: application/pdf");
         header("Content-Length: " . filesize($path));
         readfile($path);
@@ -79,7 +79,7 @@ class AlumniController extends Controller
 
     public function opentranskrip($id)
     {
-        $path = public_path('transkrip/' . $id . '.pdf');
+        $path = public_path('transkrip/' . $id );
         header("Content-type: application/pdf");
         header("Content-Length: " . filesize($path));
         readfile($path);
