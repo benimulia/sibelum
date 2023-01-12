@@ -167,8 +167,10 @@
 <div class="row mb-4 ml-2">
     
     <div class="col-sm-6 col-md-4 rounded p-2 mr-4" style="border: 1px solid">
-        <div class="row ml-2">
-            <h3>JENIS KELAMIN</h3>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>JENIS KELAMIN</h3>
+            </div>
         </div>
         <div class="card card-stats" style="background-color: #FF66CC !important;">
             <div class="card-body">
@@ -189,7 +191,7 @@
             </div>
             <div class="card-footer">
                 <hr>
-                <div class="stats text-center">
+                <div class="stats">
                     <p><b>Jumlah Alumni Perempuan</b></p>
                 </div>
             </div>
@@ -211,15 +213,18 @@
             </div>
             <div class="card-footer">
                 <hr>
-                <div class="stats text-center">
+                <div class="stats">
                     <p><b>Jumlah Alumni Laki-Laki</b></p> <br>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-sm-6 col-md-7 rounded p-2" style="border: 1px solid">
-        <div class="row ml-2">
-            <h3>PREDIKAT</h3>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>PREDIKAT</h3>
+            </div>
+            
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -241,7 +246,7 @@
                     </div>
                     <div class="card-footer">
                         <hr>
-                        <div class="stats text-center">
+                        <div class="stats">
                             <p><b>Jumlah Alumni Predikat Baik</b></p> <br>
                         </div>
                     </div>
@@ -266,7 +271,7 @@
                     </div>
                     <div class="card-footer">
                         <hr>
-                        <div class="stats text-center">
+                        <div class="stats">
                             <p><b>Jumlah Alumni Predikat memuaskan</b></p>
                         </div>
                     </div>
@@ -293,7 +298,7 @@
                     </div>
                     <div class="card-footer">
                         <hr>
-                        <div class="stats text-center">
+                        <div class="stats">
                             <p><b>Jumlah Alumni Predikat Sangat Memuaskan</b></p>
                         </div>
                     </div>
@@ -319,7 +324,7 @@
                     </div>
                     <div class="card-footer">
                         <hr>
-                        <div class="stats text-center">
+                        <div class="stats">
                             <p><b>Jumlah Alumni Predikat Dengan Pujian</b></p>
                         </div>
                     </div>
