@@ -189,7 +189,7 @@
             </div>
             <div class="card-footer">
                 <hr>
-                <div class="stats">
+                <div class="stats text-center">
                     <p><b>Jumlah Alumni Perempuan</b></p>
                 </div>
             </div>
@@ -211,7 +211,7 @@
             </div>
             <div class="card-footer">
                 <hr>
-                <div class="stats">
+                <div class="stats text-center">
                     <p><b>Jumlah Alumni Laki-Laki</b></p> <br>
                 </div>
             </div>
@@ -241,7 +241,7 @@
                     </div>
                     <div class="card-footer">
                         <hr>
-                        <div class="stats">
+                        <div class="stats text-center">
                             <p><b>Jumlah Alumni Predikat Baik</b></p> <br>
                         </div>
                     </div>
@@ -266,7 +266,7 @@
                     </div>
                     <div class="card-footer">
                         <hr>
-                        <div class="stats">
+                        <div class="stats text-center">
                             <p><b>Jumlah Alumni Predikat memuaskan</b></p>
                         </div>
                     </div>
@@ -293,7 +293,7 @@
                     </div>
                     <div class="card-footer">
                         <hr>
-                        <div class="stats">
+                        <div class="stats text-center">
                             <p><b>Jumlah Alumni Predikat Sangat Memuaskan</b></p>
                         </div>
                     </div>
@@ -319,7 +319,7 @@
                     </div>
                     <div class="card-footer">
                         <hr>
-                        <div class="stats">
+                        <div class="stats text-center">
                             <p><b>Jumlah Alumni Predikat Dengan Pujian</b></p>
                         </div>
                     </div>
